@@ -8,15 +8,15 @@ using System.Web;
 
 namespace TciCommon
 {
-    public static class IOC
+    public class IOC
     {
-        private static string rootPath;
+        protected string rootPath;
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
         public static IKernel kernel;
 
-        public static void Start(string rootPath)
+        public void Start(string rootPath)
         {
-            IOC.rootPath = rootPath;
+            this.rootPath = rootPath;
             bootstrapper.Initialize(CreateKernel);
         }
 
@@ -25,7 +25,7 @@ namespace TciCommon
             bootstrapper.ShutDown();
         }
 
-        private static IKernel CreateKernel()
+        private IKernel CreateKernel()
         {
             kernel = new StandardKernel();
             try
@@ -48,7 +48,7 @@ namespace TciCommon
             return kernel.Get<T>();
         }
 
-        private static void RegisterServices(IKernel kernel)
+        protected virtual void RegisterServices(IKernel kernel)
         {
             kernel.Bind<PersianCharacters>().ToConstant(new PersianCharacters(rootPath));
             kernel.Bind<DataTableFactory>().ToSelf();
