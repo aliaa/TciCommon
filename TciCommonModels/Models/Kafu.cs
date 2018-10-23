@@ -1,6 +1,7 @@
 ﻿using AliaaCommon;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace TciCommon.Models
         }
 
         [DisplayNameX("مرکز")]
+        [JsonConverter(typeof(ObjectIdJsonConverter))]
         public ObjectId CommCenter { get; set; }
 
         [DisplayNameX("نوع")]

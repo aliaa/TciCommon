@@ -1,8 +1,10 @@
 ﻿using AliaaCommon;
+using AliaaCommon.MongoDB;
 using Ninject;
 using Ninject.Web.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -50,8 +52,25 @@ namespace TciCommon
 
         protected virtual void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<PersianCharacters>().ToConstant(new PersianCharacters(rootPath));
             kernel.Bind<DataTableFactory>().ToSelf();
+            var persianCharacters = new PersianCharacters(rootPath);
+            kernel.Bind<PersianCharacters>().ToConstant(persianCharacters);
+
+            List<MongoHelper.CustomConnection> customConnections = new List<MongoHelper.CustomConnection>();
+            foreach (var key in ConfigurationManager.AppSettings.AllKeys.Where(k => k.StartsWith("MongodbCustomConnection_")))
+            {
+                string value = ConfigurationManager.AppSettings[key];
+                var con = new MongoHelper.CustomConnection
+                {
+                    DBName = value.Substring(0, value.IndexOf(';')).Trim(),
+                    ConnectionString = value.Substring(value.IndexOf(';') + 1).Trim(),
+                    Type = key.Substring(key.IndexOf('_') + 1)
+                };
+                customConnections.Add(con);
+            }
+            MongoHelper db = new MongoHelper(persianCharacters, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
+                ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", customConnections);
+            kernel.Bind<MongoHelper>().ToConstant(db);
         }
 
     }

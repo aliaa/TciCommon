@@ -1,4 +1,5 @@
 ﻿using AliaaCommon;
+using AliaaCommon.MongoDB;
 using Ninject;
 using Ninject.Web;
 using System;
@@ -14,8 +15,12 @@ namespace TciCommon
     {
         [Inject]
         public PersianCharacters PersianChars { get; set; }
+
         [Inject]
         public DataTableFactory TableFactory { get; set; }
+
+        [Inject]
+        public MongoHelper DB { get; set; }
 
         public bool CompressViewState { get; set; } = false;
 
