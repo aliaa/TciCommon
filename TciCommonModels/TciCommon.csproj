@@ -80,10 +80,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWeb.cs" />
+    <Compile Include="BaseHttpHandler.cs" />
     <Compile Include="BaseMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseUserControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IOC.cs" />

@@ -7,11 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI;
 
 namespace TciCommon
 {
-    public abstract class BaseMasterPage : MasterPageBase
+    public abstract class BaseUserControl : UserControlBase
     {
         [Inject]
         public PersianCharacters PersianChars { get; set; }

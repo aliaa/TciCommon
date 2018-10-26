@@ -7,11 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI;
 
 namespace TciCommon
 {
-    public abstract class BaseMasterPage : MasterPageBase
+    public abstract class BaseHttpHandler : HttpHandlerBase
     {
         [Inject]
         public PersianCharacters PersianChars { get; set; }
@@ -21,5 +20,7 @@ namespace TciCommon
 
         [Inject]
         public MongoHelper DB { get; set; }
+
+        public override bool IsReusable => true;
     }
 }
