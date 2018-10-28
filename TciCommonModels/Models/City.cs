@@ -10,6 +10,7 @@ namespace TciCommon.Models
 {
     [MongoIndex(new string[] { nameof(Province) })]
     [MongoIndex(new string[] { nameof(Name) }, Unique = true)]
+    [CollectionSave(WriteLog = true)]
     public class City : MongoEntity
     {
         public string Name { get; set; }

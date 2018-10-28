@@ -70,6 +70,7 @@ namespace TciCommon
             }
             MongoHelper db = new MongoHelper(persianCharacters, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
                 ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", customConnections);
+            db.DefaultUnifyChars = true;
             kernel.Bind<MongoHelper>().ToConstant(db);
         }
 

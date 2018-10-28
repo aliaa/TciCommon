@@ -12,6 +12,7 @@ namespace TciCommon.Models
     [MongoIndex(new string[] { nameof(City) })]
     [MongoIndex(new string[] { nameof(Name) })]
     [BsonIgnoreExtraElements]
+    [CollectionSave(WriteLog = true)]
     public class CommCenter : MongoEntity
     {
 

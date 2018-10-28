@@ -20,5 +20,10 @@ namespace TciCommon
 
         [Inject]
         public MongoHelper DB { get; set; }
+
+        protected virtual void Page_Init(object sender, EventArgs e)
+        {
+            RequestActivation();
+        }
     }
 }
