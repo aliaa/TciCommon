@@ -34,7 +34,5 @@ namespace TciCommon.Models
 
         [DisplayNameX("ظرفیت")]
         public int Capacity { get; set; }
-
-        public bool Deleted { get; set; }
     }
 }
