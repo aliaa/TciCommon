@@ -96,6 +96,7 @@
     <Compile Include="Models\GeographicalItem.cs" />
     <Compile Include="Models\GeoPosition.cs" />
     <Compile Include="Models\Kafu.cs" />
+    <Compile Include="Models\LoginLog.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

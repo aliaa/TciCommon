@@ -55,8 +55,16 @@ namespace TciCommon
             kernel.Bind<DataTableFactory>().ToSelf();
             var persianCharacters = new PersianCharacters(rootPath);
             kernel.Bind<PersianCharacters>().ToConstant(persianCharacters);
+            
+            MongoHelper db = new MongoHelper(persianCharacters, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
+                ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", GetCustomConnections());
+            db.DefaultUnifyChars = true;
+            kernel.Bind<MongoHelper>().ToConstant(db);
+        }
 
-            List<MongoHelper.CustomConnection> customConnections = new List<MongoHelper.CustomConnection>();
+        protected List<MongoHelper.CustomConnection> GetCustomConnections()
+        {
+            var customConnections = new List<MongoHelper.CustomConnection>();
             foreach (var key in ConfigurationManager.AppSettings.AllKeys.Where(k => k.StartsWith("MongodbCustomConnection_")))
             {
                 string value = ConfigurationManager.AppSettings[key];
@@ -68,11 +76,7 @@ namespace TciCommon
                 };
                 customConnections.Add(con);
             }
-            MongoHelper db = new MongoHelper(persianCharacters, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
-                ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", customConnections);
-            db.DefaultUnifyChars = true;
-            kernel.Bind<MongoHelper>().ToConstant(db);
+            return customConnections;
         }
-
     }
 }
