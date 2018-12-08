@@ -93,6 +93,7 @@
     <Compile Include="IOC.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\CommCenter.cs" />
+    <Compile Include="Models\ExceptionLog.cs" />
     <Compile Include="Models\GeographicalItem.cs" />
     <Compile Include="Models\GeoPosition.cs" />
     <Compile Include="Models\Kafu.cs" />

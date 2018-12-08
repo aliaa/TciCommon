@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using TciCommon.Models;
+using MongoDB.Driver;
+using Ninject.Planning.Bindings.Resolvers;
 
 namespace TciCommon
 {
@@ -34,8 +37,9 @@ namespace TciCommon
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => bootstrapper.Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
                 RegisterServices(kernel);
+                kernel.Components.RemoveAll<IMissingBindingResolver>();
+                kernel.Components.Add<IMissingBindingResolver, DefaultValueBindingResolver>();
                 return kernel;
             }
             catch
@@ -60,6 +64,13 @@ namespace TciCommon
                 ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", GetCustomConnections());
             db.DefaultUnifyChars = true;
             kernel.Bind<MongoHelper>().ToConstant(db);
+
+            string provincePrefix = ConfigurationManager.AppSettings["Province"];
+            if (provincePrefix != null)
+            {
+                var province = db.Find<Province>(p => p.Prefix == provincePrefix).FirstOrDefault();
+                kernel.Bind<Province>().ToConstant(province);
+            }
         }
 
         protected List<MongoHelper.CustomConnection> GetCustomConnections()
