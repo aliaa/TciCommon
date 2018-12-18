@@ -1,8 +1,6 @@
 ﻿using AliaaCommon;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace TciCommon.Models
 {
@@ -13,9 +11,14 @@ namespace TciCommon.Models
 
         public ExceptionLog() { }
 
-        public ExceptionLog(Exception Exception, string Url)
+        public ExceptionLog(Exception Exception) : this(Exception, null, null, null) { }
+
+        public ExceptionLog(Exception Exception, string Url, string Username, string IP)
         {
             this.Url = Url;
+            this.Username = Username;
+            this.IP = IP;
+            this.Exception = Exception;
             Message = Exception.Message;
             StackTrace = Exception.StackTrace;
             if (Exception.InnerException != null)
@@ -37,6 +40,9 @@ namespace TciCommon.Models
         public DateTime Time { get; set; } = DateTime.Now;
         public string Message { get; set; }
         public string StackTrace { get; set; }
+        public string Username { get; set; }
+        public string IP { get; set; }
         public List<Tuple<Exception, string, string>> InnerExceptions { get; set; } = new List<Tuple<Exception, string, string>>();
+        public bool Checked { get; set; }
     }
 }

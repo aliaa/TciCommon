@@ -15,10 +15,14 @@ namespace TciCommon.Models
     {
         public enum kafuType
         {
-            [DisplayNameX("نوری")]
-            Optical,
             [DisplayNameX("مسی")]
             Copper,
+            [DisplayNameX("ONU")]
+            ONU,
+            [DisplayNameX("DLC")]
+            DLC,
+            [DisplayNameX("ODC")]
+            ODC,
         }
 
         [DisplayNameX("مرکز")]
