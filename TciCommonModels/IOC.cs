@@ -56,7 +56,7 @@ namespace TciCommon
 
         protected virtual void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DataTableFactory>().ToSelf();
+            kernel.Bind<DataTableFactory>().ToSelf().InSingletonScope();
             var persianCharacters = new PersianCharacters(rootPath);
             kernel.Bind<PersianCharacters>().ToConstant(persianCharacters);
             

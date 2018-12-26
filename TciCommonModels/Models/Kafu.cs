@@ -23,6 +23,12 @@ namespace TciCommon.Models
             DLC,
             [DisplayNameX("ODC")]
             ODC,
+            [DisplayNameX("OLT")]
+            OLT,
+            [DisplayNameX("BTS")]
+            BTS,
+            [DisplayNameX("FAT")]
+            FAT,
         }
 
         [DisplayNameX("مرکز")]
