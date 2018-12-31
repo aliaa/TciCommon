@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 
 namespace TciCommon
 {
@@ -24,6 +25,11 @@ namespace TciCommon
         protected virtual void Page_Init(object sender, EventArgs e)
         {
             RequestActivation();
+        }
+
+        protected T CreateUserControl<T>() where T : UserControl
+        {
+            return (T)LoadControl("~/Controls" + typeof(T).Name + ".ascx");
         }
     }
 }

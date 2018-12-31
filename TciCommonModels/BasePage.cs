@@ -46,5 +46,10 @@ namespace TciCommon
             else
                 base.SavePageStateToPersistenceMedium(state);
         }
+
+        protected T CreateUserControl<T>() where T : UserControl
+        {
+            return (T)LoadControl("~/Controls" + typeof(T).Name + ".ascx");
+        }
     }
 }
