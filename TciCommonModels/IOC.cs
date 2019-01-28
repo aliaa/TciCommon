@@ -56,7 +56,6 @@ namespace TciCommon
 
         protected virtual void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DataTableFactory>().ToSelf().InSingletonScope();
             var persianCharacters = new PersianCharacters(rootPath);
             kernel.Bind<PersianCharacters>().ToConstant(persianCharacters);
             
@@ -64,6 +63,9 @@ namespace TciCommon
                 ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", GetCustomConnections());
             db.DefaultUnifyChars = true;
             kernel.Bind<MongoHelper>().ToConstant(db);
+
+            DataTableFactory tableFactory = new DataTableFactory(db);
+            kernel.Bind<DataTableFactory>().ToConstant(tableFactory).InSingletonScope();
 
             string provincePrefix = ConfigurationManager.AppSettings["Province"];
             if (provincePrefix != null)

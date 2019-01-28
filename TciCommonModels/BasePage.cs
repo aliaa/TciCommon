@@ -1,4 +1,5 @@
 ﻿using AliaaCommon;
+using AliaaCommon.Models;
 using AliaaCommon.MongoDB;
 using MongoDB.Driver;
 using Ninject;
@@ -24,13 +25,23 @@ namespace TciCommon
         [Inject]
         public MongoHelper DB { get; set; }
 
-        [Inject]
-        [Optional]
+        [Inject][Optional]
         public Province Province { get; set; }
 
         public IEnumerable<City> Cities => DB.Find<City>(c => c.Province == Province.Id).SortBy(c => c.Name).ToEnumerable();
 
         public bool CompressViewState { get; set; } = false;
+
+        private AuthUser _currentUser = null;
+        public virtual AuthUser CurrentUser
+        {
+            get
+            {
+                if (_currentUser == null)
+                    _currentUser = DB.GetCurrentUser();
+                return _currentUser;
+            }
+        }
 
         protected override object LoadPageStateFromPersistenceMedium()
         {
