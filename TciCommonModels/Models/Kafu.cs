@@ -17,18 +17,14 @@ namespace TciCommon.Models
         {
             [DisplayNameX("مسی")]
             Copper,
-            [DisplayNameX("ONU")]
             ONU,
-            [DisplayNameX("DLC")]
             DLC,
-            [DisplayNameX("ODC")]
             ODC,
-            [DisplayNameX("OLT")]
             OLT,
-            [DisplayNameX("BTS")]
             BTS,
-            [DisplayNameX("FAT")]
             FAT,
+            ONUD,
+            ONUS,
         }
 
         [DisplayNameX("مرکز")]
