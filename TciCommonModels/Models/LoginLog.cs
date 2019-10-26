@@ -17,7 +17,9 @@ namespace TciCommon.Models
     public class LoginLog : MongoEntity
     {
         public ObjectId UserId { get; set; }
+        [DisplayNameX("نام کاربری")]
         public string Username { get; set; }
+        [DisplayNameX("تاریخ")]
         public DateTime Date { get; set; } = DateTime.Now;
         public string IP { get; set; }
         public bool Sucess { get; set; }
