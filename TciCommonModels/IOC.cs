@@ -42,10 +42,10 @@ namespace TciCommon
                 kernel.Components.Add<IMissingBindingResolver, DefaultValueBindingResolver>();
                 return kernel;
             }
-            catch
+            catch(Exception ex)
             {
                 kernel.Dispose();
-                throw;
+                throw ex;
             }
         }
 
