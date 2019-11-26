@@ -10,6 +10,7 @@ using System.Web;
 using TciCommon.Models;
 using MongoDB.Driver;
 using Ninject.Planning.Bindings.Resolvers;
+using System.IO;
 
 namespace TciCommon
 {
@@ -56,12 +57,12 @@ namespace TciCommon
 
         protected virtual void RegisterServices(IKernel kernel)
         {
-            var persianCharacters = new PersianCharacters(rootPath);
-            kernel.Bind<PersianCharacters>().ToConstant(persianCharacters);
+            var stringNormalizer = new StringNormalizer(Path.Combine(rootPath, "PersianCharsMap.json"));
+            kernel.Bind<IStringNormalizer>().ToConstant(stringNormalizer);
             
-            MongoHelper db = new MongoHelper(persianCharacters, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
+            MongoHelper db = new MongoHelper(stringNormalizer, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
                 ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", GetCustomConnections());
-            db.DefaultUnifyChars = true;
+            db.DefaultNormalizeStrings = true;
             kernel.Bind<MongoHelper>().ToConstant(db);
 
             DataTableFactory tableFactory = new DataTableFactory(db);

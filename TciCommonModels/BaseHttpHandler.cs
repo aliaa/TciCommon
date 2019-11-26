@@ -13,7 +13,7 @@ namespace TciCommon
     public abstract class BaseHttpHandler : HttpHandlerBase
     {
         [Inject]
-        public PersianCharacters PersianChars { get; set; }
+        public IStringNormalizer StringNormalizer { get; set; }
 
         [Inject]
         public DataTableFactory TableFactory { get; set; }

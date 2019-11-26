@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TciCommon.Models
 {
-    [CollectionSave(WriteLog = false, UnifyChars = false)]
+    [CollectionSave(WriteLog = false, NormalizeStrings = false)]
     [CollectionOptions(Capped = true, MaxSize = 10000000)]
     [MongoIndex(new string[] { nameof(UserId) })]
     [MongoIndex(new string[] { nameof(Username) })]

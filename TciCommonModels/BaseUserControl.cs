@@ -16,7 +16,7 @@ namespace TciCommon
     public abstract class BaseUserControl : UserControlBase
     {
         [Inject]
-        public PersianCharacters PersianChars { get; set; }
+        public IStringNormalizer StringNormalizer { get; set; }
 
         [Inject]
         public DataTableFactory TableFactory { get; set; }
