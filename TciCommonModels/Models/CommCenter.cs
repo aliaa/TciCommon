@@ -1,16 +1,12 @@
 ﻿using AliaaCommon;
+using EasyMongoNet;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TciCommon.Models
 {
-    [MongoIndex(new string[] { nameof(City) })]
-    [MongoIndex(new string[] { nameof(Name) })]
+    [CollectionIndex(new string[] { nameof(City) })]
+    [CollectionIndex(new string[] { nameof(Name) })]
     [BsonIgnoreExtraElements]
     [CollectionSave(WriteLog = true)]
     public class CommCenter : MongoEntity

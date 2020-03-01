@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TciCommon</RootNamespace>
     <AssemblyName>TciCommon</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -107,6 +107,7 @@
     <Compile Include="Models\LoginLog.cs" />
     <Compile Include="Models\Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceDBs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -120,6 +121,10 @@
     <ProjectReference Include="..\..\..\AliaaCommon\AliaaCommon\AliaaCommon.csproj">
       <Project>{10666660-095d-4878-99cf-3e5cab5b575a}</Project>
       <Name>AliaaCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyMongoNet\EasyMongoNet.csproj">
+      <Project>{65be2a14-c447-4679-a0e5-13f7441da88e}</Project>
+      <Name>EasyMongoNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

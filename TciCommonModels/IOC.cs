@@ -1,5 +1,5 @@
 ﻿using AliaaCommon;
-using AliaaCommon.MongoDB;
+using EasyMongoNet;
 using Ninject;
 using Ninject.Web.Common;
 using System;
@@ -59,11 +59,14 @@ namespace TciCommon
         {
             var stringNormalizer = new StringNormalizer(Path.Combine(rootPath, "PersianCharsMap.json"));
             kernel.Bind<IStringNormalizer>().ToConstant(stringNormalizer);
-            
-            MongoHelper db = new MongoHelper(stringNormalizer, ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
-                ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", GetCustomConnections());
-            db.DefaultNormalizeStrings = true;
-            kernel.Bind<MongoHelper>().ToConstant(db);
+
+            var db = new MongoDbContext(ConfigurationManager.AppSettings["DBName"], ConfigurationManager.AppSettings["MongoConnString"],
+                getUsernameFunc: () => HttpContext.Current?.User?.Identity?.Name,
+                objectPreprocessor: stringNormalizer,
+                setDictionaryConventionToArrayOfDocuments: ConfigurationManager.AppSettings["setDictionaryConventionToArrayOfDocuments"] == "true", 
+                customConnections: GetCustomConnections());
+            db.DefaultPreprocess = true;
+            kernel.Bind<IDbContext>().ToConstant(db);
 
             DataTableFactory tableFactory = new DataTableFactory(db);
             kernel.Bind<DataTableFactory>().ToConstant(tableFactory).InSingletonScope();
@@ -71,21 +74,21 @@ namespace TciCommon
             string provincePrefix = ConfigurationManager.AppSettings["Province"];
             if (provincePrefix != null)
             {
-                var province = db.Find<Province>(p => p.Prefix == provincePrefix).FirstOrDefault();
+                var province = db.FindFirst<Province>(p => p.Prefix == provincePrefix);
                 kernel.Bind<Province>().ToConstant(province);
             }
         }
 
-        protected List<MongoHelper.CustomConnection> GetCustomConnections()
+        protected List<CustomMongoConnection> GetCustomConnections()
         {
-            var customConnections = new List<MongoHelper.CustomConnection>();
+            var customConnections = new List<CustomMongoConnection>();
             foreach (var key in ConfigurationManager.AppSettings.AllKeys.Where(k => k.StartsWith("MongodbCustomConnection_")))
             {
                 string value = ConfigurationManager.AppSettings[key];
-                var con = new MongoHelper.CustomConnection
+                var con = new CustomMongoConnection
                 {
                     DBName = value.Substring(0, value.IndexOf(';')).Trim(),
-                    ConnectionString = value.Substring(value.IndexOf(';') + 1).Trim(),
+                    ConnectionSettings = MongoClientSettings.FromConnectionString(value.Substring(value.IndexOf(';') + 1).Trim()),
                     Type = key.Substring(key.IndexOf('_') + 1)
                 };
                 customConnections.Add(con);

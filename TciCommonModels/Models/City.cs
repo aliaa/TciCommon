@@ -1,15 +1,10 @@
-﻿using AliaaCommon;
+﻿using EasyMongoNet;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TciCommon.Models
 {
-    [MongoIndex(new string[] { nameof(Province) })]
-    [MongoIndex(new string[] { nameof(Name) }, Unique = true)]
+    [CollectionIndex(new string[] { nameof(Province) })]
+    [CollectionIndex(new string[] { nameof(Name) }, Unique = true)]
     [CollectionSave(WriteLog = true)]
     public class City : MongoEntity
     {

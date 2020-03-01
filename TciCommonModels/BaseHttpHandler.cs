@@ -1,5 +1,5 @@
 ﻿using AliaaCommon;
-using AliaaCommon.MongoDB;
+using EasyMongoNet;
 using Ninject;
 using Ninject.Web;
 using System;
@@ -19,7 +19,7 @@ namespace TciCommon
         public DataTableFactory TableFactory { get; set; }
 
         [Inject]
-        public MongoHelper DB { get; set; }
+        public IDbContext DB { get; set; }
 
         public override bool IsReusable => true;
     }

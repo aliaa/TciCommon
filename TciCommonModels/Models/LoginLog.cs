@@ -1,19 +1,16 @@
 ﻿using AliaaCommon;
 using MongoDB.Bson;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EasyMongoNet;
 
 namespace TciCommon.Models
 {
-    [CollectionSave(WriteLog = false, NormalizeStrings = false)]
+    [CollectionSave(WriteLog = false, Preprocess = false)]
     [CollectionOptions(Capped = true, MaxSize = 10000000)]
-    [MongoIndex(new string[] { nameof(UserId) })]
-    [MongoIndex(new string[] { nameof(Username) })]
-    [MongoIndex(new string[] { nameof(IP) })]
-    [MongoIndex(new string[] { nameof(Date) }, new MongoIndexType[] { MongoIndexType.Descending })]
+    [CollectionIndex(new string[] { nameof(UserId) })]
+    [CollectionIndex(new string[] { nameof(Username) })]
+    [CollectionIndex(new string[] { nameof(IP) })]
+    [CollectionIndex(new string[] { nameof(Date) }, new MongoIndexType[] { MongoIndexType.Descending })]
     public class LoginLog : MongoEntity
     {
         public ObjectId UserId { get; set; }

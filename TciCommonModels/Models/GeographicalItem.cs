@@ -1,14 +1,11 @@
 ﻿using AliaaCommon;
-using MongoDB.Bson;
+using EasyMongoNet;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace TciCommon.Models
 {
     [Serializable]
-    [MongoIndex(new string[] { nameof(Name) })]
+    [CollectionIndex(new string[] { nameof(Name) })]
     public abstract class GeographicalItem : MongoEntity
     {
         [DisplayNameX("نام")]

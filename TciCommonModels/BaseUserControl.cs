@@ -1,13 +1,10 @@
 ﻿using AliaaCommon;
-using AliaaCommon.MongoDB;
+using EasyMongoNet;
 using MongoDB.Driver;
 using Ninject;
 using Ninject.Web;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.UI;
 using TciCommon.Models;
 
@@ -22,7 +19,7 @@ namespace TciCommon
         public DataTableFactory TableFactory { get; set; }
 
         [Inject]
-        public MongoHelper DB { get; set; }
+        public IDbContext DB { get; set; }
 
         [Inject]
         [Optional]

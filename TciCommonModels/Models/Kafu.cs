@@ -2,14 +2,11 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using EasyMongoNet;
 
 namespace TciCommon.Models
 {
-    [MongoIndex(new string[] { nameof(CommCenter)})]
+    [CollectionIndex(new string[] { nameof(CommCenter)})]
     [BsonIgnoreExtraElements]
     public class Kafu : GeographicalItem
     {
