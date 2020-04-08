@@ -1,6 +1,6 @@
-﻿using AliaaCommon;
-using EasyMongoNet;
+﻿using EasyMongoNet;
 using System;
+using System.ComponentModel;
 
 namespace TciCommon.Models
 {
@@ -8,16 +8,16 @@ namespace TciCommon.Models
     [CollectionIndex(new string[] { nameof(Name) })]
     public abstract class GeographicalItem : MongoEntity
     {
-        [DisplayNameX("نام")]
+        [DisplayName("نام")]
         public string Name { get; set; }
 
-        [DisplayNameX("موقعیت جغرافیایی")]
+        [DisplayName("موقعیت جغرافیایی")]
         public GeoPosition Location { get; set; }
         
-        [DisplayNameX("آدرس")]
+        [DisplayName("آدرس")]
         public string Address { get; set; }
 
-        [DisplayNameX("توضیح")]
+        [DisplayName("توضیح")]
         public string Description { get; set; }
     }
 }

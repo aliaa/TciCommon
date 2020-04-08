@@ -99,15 +99,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IOC.cs" />
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\CommCenter.cs" />
-    <Compile Include="Models\GeographicalItem.cs" />
-    <Compile Include="Models\GeoPosition.cs" />
     <Compile Include="Models\Kafu.cs" />
-    <Compile Include="Models\LoginLog.cs" />
-    <Compile Include="Models\Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProvinceDBs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -125,6 +118,10 @@
     <ProjectReference Include="..\..\..\EasyMongoNet\EasyMongoNet.csproj">
       <Project>{65be2a14-c447-4679-a0e5-13f7441da88e}</Project>
       <Name>EasyMongoNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TciCommonStandard\TciCommonStandard.csproj">
+      <Project>{288489f0-59ef-4a17-aeb4-4acd0eff2e53}</Project>
+      <Name>TciCommonStandard</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

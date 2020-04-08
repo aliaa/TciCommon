@@ -1,7 +1,7 @@
-﻿using AliaaCommon;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using System;
 using EasyMongoNet;
+using System.ComponentModel;
 
 namespace TciCommon.Models
 {
@@ -14,9 +14,9 @@ namespace TciCommon.Models
     public class LoginLog : MongoEntity
     {
         public ObjectId UserId { get; set; }
-        [DisplayNameX("نام کاربری")]
+        [DisplayName("نام کاربری")]
         public string Username { get; set; }
-        [DisplayNameX("تاریخ")]
+        [DisplayName("تاریخ")]
         public DateTime Date { get; set; } = DateTime.Now;
         public string IP { get; set; }
         public bool Sucess { get; set; }

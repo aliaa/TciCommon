@@ -1,7 +1,7 @@
-﻿using AliaaCommon;
-using EasyMongoNet;
+﻿using EasyMongoNet;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel;
 
 namespace TciCommon.Models
 {
@@ -12,25 +12,25 @@ namespace TciCommon.Models
     public class CommCenter : MongoEntity
     {
 
-        [DisplayNameX("نام")]
+        [DisplayName("نام")]
         public string Name { get; set; }
 
-        [DisplayNameX("شهر")]
+        [DisplayName("شهر")]
         public ObjectId City { get; set; }
 
-        [DisplayNameX("نام مسئول")]
+        [DisplayName("نام مسئول")]
         public string ResponderName { get; set; }
 
-        [DisplayNameX("تلفن مسئول")]
+        [DisplayName("تلفن مسئول")]
         public string Phone { get; set; }
 
-        [DisplayNameX("شماره همراه مسئول")]
+        [DisplayName("شماره همراه مسئول")]
         public string SupervisorMobile { get; set; }
 
-        [DisplayNameX("آدرس")]
+        [DisplayName("آدرس")]
         public string Address { get; set; }
 
-        [DisplayNameX("موقعیت جغرافیایی")]
+        [DisplayName("موقعیت جغرافیایی")]
         public GeoPosition Location { get; set; }
 
         public int CompareTo(object obj)

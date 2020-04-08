@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using EasyMongoNet;
+using System.ComponentModel;
 
 namespace TciCommon.Models
 {
@@ -24,18 +25,18 @@ namespace TciCommon.Models
             ONUS,
         }
 
-        [DisplayNameX("مرکز")]
+        [DisplayName("مرکز")]
         [JsonConverter(typeof(ObjectIdJsonConverter))]
         public ObjectId CommCenter { get; set; }
 
-        [DisplayNameX("نوع")]
+        [DisplayName("نوع")]
         [BsonRepresentation(BsonType.String)]
         public kafuType Type { get; set; }
 
-        [DisplayNameX("برند")]
+        [DisplayName("برند")]
         public string Brand { get; set; }
 
-        [DisplayNameX("ظرفیت")]
+        [DisplayName("ظرفیت")]
         public int Capacity { get; set; }
     }
 }
