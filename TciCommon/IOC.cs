@@ -67,6 +67,7 @@ namespace TciCommon
                 customConnections: GetCustomConnections());
             db.DefaultPreprocess = true;
             kernel.Bind<IDbContext>().ToConstant(db);
+            kernel.Bind<IReadOnlyDbContext>().ToConstant(db);
 
             DataTableFactory tableFactory = new DataTableFactory(db);
             kernel.Bind<DataTableFactory>().ToConstant(tableFactory).InSingletonScope();
@@ -88,7 +89,7 @@ namespace TciCommon
                 var con = new CustomMongoConnection
                 {
                     DBName = value.Substring(0, value.IndexOf(';')).Trim(),
-                    ConnectionSettings = MongoClientSettings.FromConnectionString(value.Substring(value.IndexOf(';') + 1).Trim()),
+                    ConnectionString = value.Substring(value.IndexOf(';') + 1).Trim(),
                     Type = key.Substring(key.IndexOf('_') + 1)
                 };
                 customConnections.Add(con);
