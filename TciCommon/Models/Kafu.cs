@@ -4,6 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 using EasyMongoNet;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TciCommon.Models
 {
@@ -13,7 +14,7 @@ namespace TciCommon.Models
     {
         public enum kafuType
         {
-            [DisplayNameX("مسی")]
+            [Display(Name = "مسی")]
             Copper,
             ONU,
             DLC,
