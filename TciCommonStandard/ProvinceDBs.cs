@@ -17,5 +17,7 @@ namespace TciPM.Classes
         public IDbContext this[string provincePrefix] => DBs[provincePrefix];
 
         public IEnumerable<string> Keys => DBs.Keys;
+
+        public IDbContext CommonDb { get; set; }
     }
 }
