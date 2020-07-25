@@ -1,5 +1,6 @@
 ﻿using EasyMongoNet;
 using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 namespace TciCommon.Models
 {
@@ -8,6 +9,7 @@ namespace TciCommon.Models
     [CollectionSave(WriteLog = true)]
     public class City : MongoEntity
     {
+        [Required]
         public string Name { get; set; }
 
         public ObjectId Province { get; set; }

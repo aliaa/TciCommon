@@ -1,6 +1,7 @@
 ﻿using EasyMongoNet;
 using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TciCommon.Models
 {
@@ -8,6 +9,7 @@ namespace TciCommon.Models
     [CollectionIndex(new string[] { nameof(Name) })]
     public abstract class GeographicalItem : MongoEntity
     {
+        [Required]
         [DisplayName("نام")]
         public string Name { get; set; }
 

@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TciCommon.Models
 {
@@ -11,7 +12,7 @@ namespace TciCommon.Models
     [CollectionSave(WriteLog = true)]
     public class CommCenter : MongoEntity
     {
-
+        [Required]
         [DisplayName("نام")]
         public string Name { get; set; }
 
