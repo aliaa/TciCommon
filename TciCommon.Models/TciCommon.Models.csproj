@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\EasyMongoNet\EasyMongoNet.csproj" />
+    <ProjectReference Include="..\..\..\EasyMongoNet\Definitions\EasyMongoNet.Definitions.csproj" />
   </ItemGroup>
 
   <ItemGroup>

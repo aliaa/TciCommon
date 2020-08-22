@@ -125,13 +125,17 @@
       <Project>{10666660-095d-4878-99cf-3e5cab5b575a}</Project>
       <Name>AliaaCommon</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\EasyMongoNet\EasyMongoNet.csproj">
-      <Project>{65be2a14-c447-4679-a0e5-13f7441da88e}</Project>
-      <Name>EasyMongoNet</Name>
+    <ProjectReference Include="..\..\..\EasyMongoNet\Definitions\EasyMongoNet.Definitions.csproj">
+      <Project>{64b4c898-ecbb-49db-93bf-6a0da86ce833}</Project>
+      <Name>EasyMongoNet.Definitions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TciCommonStandard\TciCommonStandard.csproj">
-      <Project>{288489f0-59ef-4a17-aeb4-4acd0eff2e53}</Project>
-      <Name>TciCommonStandard</Name>
+    <ProjectReference Include="..\..\..\EasyMongoNet\Driver\EasyMongoNet.Driver.csproj">
+      <Project>{f5445477-fc89-4be1-bcd1-1783cd44d9da}</Project>
+      <Name>EasyMongoNet.Driver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TciCommon.Models\TciCommon.Models.csproj">
+      <Project>{0f9b0d30-c93e-461b-bfc9-916d12318ede}</Project>
+      <Name>TciCommon.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
