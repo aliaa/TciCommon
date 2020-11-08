@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyMongoNet.Driver", "..\.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TciCommon.Models", "TciCommon.Models\TciCommon.Models.csproj", "{0F9B0D30-C93E-461B-BFC9-916D12318EDE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TciCommon.ServerUtils", "TciCommon.ServerUtils\TciCommon.ServerUtils.csproj", "{7D2F149D-407E-46BE-9638-153553C034F1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliaaCommon.Asp", "..\..\AliaaCommon\AliaaCommon.Asp\AliaaCommon.Asp.csproj", "{40EE07AC-129E-4FBD-BA14-475124D72FB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliaaCommon.Server", "..\..\AliaaCommon\AliaaCommon.Server\AliaaCommon.Server.csproj", "{66C7A577-3326-4273-B671-311FD87843BF}"
@@ -20,6 +18,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliaaCommon.Models", "..\..\AliaaCommon\AliaaCommon.Models\AliaaCommon.Models.csproj", "{FE10B953-D558-4D50-9C1A-0B17B0CD75FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TciCommon.Asp", "TciCommon.Asp\TciCommon.Asp.csproj", "{048D24FF-8A41-42A3-B96B-22692550AB1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TciCommon.Server", "TciCommon.Server\TciCommon.Server.csproj", "{1C250C3A-CC26-4313-A1C1-D220E247325B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,6 @@ Global
 		{0F9B0D30-C93E-461B-BFC9-916D12318EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F9B0D30-C93E-461B-BFC9-916D12318EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F9B0D30-C93E-461B-BFC9-916D12318EDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D2F149D-407E-46BE-9638-153553C034F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D2F149D-407E-46BE-9638-153553C034F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D2F149D-407E-46BE-9638-153553C034F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D2F149D-407E-46BE-9638-153553C034F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40EE07AC-129E-4FBD-BA14-475124D72FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{40EE07AC-129E-4FBD-BA14-475124D72FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40EE07AC-129E-4FBD-BA14-475124D72FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{048D24FF-8A41-42A3-B96B-22692550AB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{048D24FF-8A41-42A3-B96B-22692550AB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048D24FF-8A41-42A3-B96B-22692550AB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C250C3A-CC26-4313-A1C1-D220E247325B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C250C3A-CC26-4313-A1C1-D220E247325B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C250C3A-CC26-4313-A1C1-D220E247325B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C250C3A-CC26-4313-A1C1-D220E247325B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 ﻿using EasyMongoNet;
 using System.Collections.Generic;
 
-namespace TciCommon.ServerUtils
+namespace TciCommon.Server
 {
     public class ProvinceDBs
     {
