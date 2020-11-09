@@ -8,11 +8,10 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using TciCommon.Models;
-using MongoDB.Driver;
 using Ninject.Planning.Bindings.Resolvers;
 using System.IO;
 
-namespace TciCommon
+namespace TciCommon.Asp
 {
     public class IOC
     {

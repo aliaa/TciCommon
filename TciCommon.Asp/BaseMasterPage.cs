@@ -3,7 +3,7 @@ using EasyMongoNet;
 using Ninject;
 using Ninject.Web;
 
-namespace TciCommon
+namespace TciCommon.Asp
 {
     public abstract class BaseMasterPage : MasterPageBase
     {

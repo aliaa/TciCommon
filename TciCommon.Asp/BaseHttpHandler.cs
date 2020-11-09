@@ -2,13 +2,8 @@
 using EasyMongoNet;
 using Ninject;
 using Ninject.Web;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TciCommon
+namespace TciCommon.Asp
 {
     public abstract class BaseHttpHandler : HttpHandlerBase
     {

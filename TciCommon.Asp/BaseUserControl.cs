@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Web.UI;
 using TciCommon.Models;
 
-namespace TciCommon
+namespace TciCommon.Asp
 {
     public abstract class BaseUserControl : UserControlBase
     {

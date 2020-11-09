@@ -1,5 +1,4 @@
 ﻿using AliaaCommon;
-using AliaaCommon.Asp;
 using AliaaCommon.Models;
 using EasyMongoNet;
 using MongoDB.Driver;
@@ -10,7 +9,7 @@ using System.Collections.Generic;
 using System.Web.UI;
 using TciCommon.Models;
 
-namespace TciCommon
+namespace TciCommon.Asp
 {
     public abstract class BasePage : PageBase
     {
