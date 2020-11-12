@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
 using EasyMongoNet;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -26,8 +25,8 @@ namespace TciCommon.Models
         }
 
         [DisplayName("مرکز")]
-        [JsonConverter(typeof(ObjectIdJsonConverter))]
-        public ObjectId CommCenter { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string CommCenter { get; set; }
 
         [DisplayName("نوع")]
         [BsonRepresentation(BsonType.String)]

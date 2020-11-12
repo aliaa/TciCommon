@@ -1,5 +1,6 @@
 ﻿using EasyMongoNet;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace TciCommon.Models
@@ -12,7 +13,8 @@ namespace TciCommon.Models
         [Required]
         public string Name { get; set; }
 
-        public ObjectId Province { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Province { get; set; }
 
         public GeoPosition Location { get; set; }
 

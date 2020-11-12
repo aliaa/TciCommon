@@ -16,8 +16,9 @@ namespace TciCommon.Models
         [DisplayName("نام")]
         public string Name { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         [DisplayName("شهر")]
-        public ObjectId City { get; set; }
+        public string City { get; set; }
 
         [DisplayName("نام مسئول")]
         public string ResponderName { get; set; }

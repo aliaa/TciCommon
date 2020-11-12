@@ -2,6 +2,7 @@
 using System;
 using EasyMongoNet;
 using System.ComponentModel;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TciCommon.Models
 {
@@ -13,7 +14,9 @@ namespace TciCommon.Models
     [CollectionIndex(new string[] { nameof(Date) }, new MongoIndexType[] { MongoIndexType.Descending })]
     public class LoginLog : MongoEntity
     {
-        public ObjectId UserId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string UserId { get; set; }
+
         [DisplayName("نام کاربری")]
         public string Username { get; set; }
         [DisplayName("تاریخ")]
