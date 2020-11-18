@@ -2,6 +2,7 @@
 using EasyMongoNet;
 using Ninject;
 using Ninject.Web;
+using TciCommon.Server;
 
 namespace TciCommon.Asp
 {

@@ -10,6 +10,7 @@ using System.Web;
 using TciCommon.Models;
 using Ninject.Planning.Bindings.Resolvers;
 using System.IO;
+using TciCommon.Server;
 
 namespace TciCommon.Asp
 {
